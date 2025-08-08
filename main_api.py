@@ -9,7 +9,7 @@ app = FastAPI()
 
 EXPECTED_TOKEN = "6e6de8c174e72f2501628ae7ddc119732bc8c34a72097f682a2bf339db673dd7"
 
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 def read_root():
     return {"status": "ok"}
 
