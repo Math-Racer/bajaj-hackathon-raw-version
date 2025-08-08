@@ -9,6 +9,11 @@ app = FastAPI()
 
 EXPECTED_TOKEN = "6e6de8c174e72f2501628ae7ddc119732bc8c34a72097f682a2bf339db673dd7"
 
+@app.get("/")
+def read_root():
+    return {"status": "ok"}
+
+
 @app.post("/api/v1/hackrx/run")
 async def run_qa(request: Request, authorization: Optional[str] = Header(None)):
     if authorization != f"Bearer {EXPECTED_TOKEN}":
